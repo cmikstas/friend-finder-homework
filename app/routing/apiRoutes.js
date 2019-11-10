@@ -6,7 +6,11 @@ module.exports = function(app)
     app.get("/api/survey", function(req, res)
     {
         res.json(userData);
+        console.log(userData);
     });
 
-    //Need to add post?
+    app.post("/api/survey", function(req, res)
+    {
+        userData.push(req.body);
+    });
 };
