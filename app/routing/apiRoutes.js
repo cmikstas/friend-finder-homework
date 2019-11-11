@@ -11,5 +11,6 @@ module.exports = function(app)
     app.post("/api/survey", function(req, res)
     {
         userData.push(req.body);
+        res.json(true);
     });
 };

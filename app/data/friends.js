@@ -1,7 +1,7 @@
 var userArray =
 [
     {
-        "name": "Ahmed",
+        "userName": "Ahmed",
         "scores":
         [
             5,

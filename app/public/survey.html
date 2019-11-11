@@ -251,7 +251,7 @@
 
                     //console.log(userEntry);
 
-                    $.post("/api/friends", userEntry, function(data)
+                    $.post("./data/friends", userEntry, function(data)
                     {
                         $("#match-name").text(data.name);
                         //$("#match-img").attr("src", data.photo);
