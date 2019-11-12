@@ -23,9 +23,14 @@
         <div class="mt-2">
             <h3 class="text-primary">About You</h3>
             <form role="form">
-                <div class="pb-4 border-bottom form-group">
+                <div class="form-group">
                     <label for="user-name">Name (Required)</label>
                     <input type="text" class="form-control" id="user-name">
+                </div>
+
+                <div class="pb-4 border-bottom form-group">
+                <label>Link to Photo Image (Required)</label>
+                <input type="text" id="photo" class="form-control" required="">
                 </div>
 
                 <div id="1" class="p-2 form group mb-3">
@@ -33,7 +38,7 @@
                     <h4>Your mind is always buzzing with unexplored ideas and plans.</h4>
                     <select class="chosen-select" id="q1" style="display: none;" val="1">
                         <option value="">Please select an option</option>
-                        <option class="value="1">1 (Strongly Disagree)</option>
+                        <option value="1">1 (Strongly Disagree)</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
                         <option value="4">4</option>
@@ -236,26 +241,24 @@
                         userName: $("#user-name").val().trim(),
                         scores:
                         [
-                            $("#q1").val().trim(),
-                            $("#q2").val().trim(),
-                            $("#q3").val().trim(),
-                            $("#q4").val().trim(),
-                            $("#q5").val().trim(),
-                            $("#q6").val().trim(),
-                            $("#q7").val().trim(),
-                            $("#q8").val().trim(),
-                            $("#q9").val().trim(),
-                            $("#q10").val().trim()
+                            $("#q1").val(),
+                            $("#q2").val(),
+                            $("#q3").val(),
+                            $("#q4").val(),
+                            $("#q5").val(),
+                            $("#q6").val(),
+                            $("#q7").val(),
+                            $("#q8").val(),
+                            $("#q9").val(),
+                            $("#q10").val()
                         ]
                     };
 
-                    //console.log(userEntry);
+                    console.log(userEntry);
 
-                    $.post("./data/friends", userEntry, function(data)
+                    $.post("/api/friends", userEntry, function(data)
                     {
-                        $("#match-name").text(data.name);
-                        //$("#match-img").attr("src", data.photo);
-                        $("#results-modal").modal("toggle");
+
                     });
                 }
             });
