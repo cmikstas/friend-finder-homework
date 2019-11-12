@@ -10,19 +10,30 @@ module.exports = function(app)
 
     app.post("/api/friends", function(req, res)
     {
+        let bestMatchDiff = 10000;
+        let bestMatchIndex = 0;
+
         for (let i = 0; i < userData.length; i++)
         {
             //console.log(userData);
             let scoreDiff = 0;
 
-            for (let j = 0; j < userData[j].scores.length; j++)
+            for (let j = 0; j < userData[i].scores.length; j++)
             {
+                scoreDiff += Math.abs(userData[i].scores[j]-req.body.scores[j]);
+                console.log(scoreDiff);
+            }
 
+            if (scoreDiff < bestMatchDiff)
+            {
+                bestMatchDiff = scoreDiff;
+                bestMatchIndex = i;
             }
         }
 
-        userData.push(req.body);
-        //res.json(true);
+        console.log(userData[bestMatchIndex]);
 
+        userData.push(req.body);
+        res.json(userData[bestMatchIndex]);
     });
 };
