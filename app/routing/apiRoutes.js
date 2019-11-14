@@ -36,4 +36,15 @@ module.exports = function(app)
         userData.push(req.body);
         res.json(userData[bestMatchIndex]);
     });
+
+    app.get("/api/clear", function(req, res)
+    {
+      while (userData.length !== 1)
+      {
+        userData.pop();
+      }
+      
+      //res.json({ ok: true });
+      res.redirect("/");
+    });
 };
