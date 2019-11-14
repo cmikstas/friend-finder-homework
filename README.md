@@ -24,8 +24,4 @@ This project uses Node.js, Express, Javascript, and Heroku to do the following:
 
 * Once the user fills out the survey questions and hits `Submit`, the closest match will be displayed.
 
-**Please refer to the follow links for help using this project:**
-
-* Add demo gif.
-
 This project was completed by Chris Mikstas on 11/2019.
